@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Supprimer {{ type }}{% endblock %}
+
+{% block content %}
+<div class="alert alert-danger mt-4">
+  <h4>Confirmation</h4>
+  <p>Voulez-vous vraiment supprimer ce {{ type }} (ID {{ id }}) ?</p>
+
+  <form method="post">
+    <button class="btn btn-danger">Oui, supprimer</button>
+    <a href="{{ back_url }}" class="btn btn-secondary">Annuler</a>
+  </form>
+</div>
+{% endblock %}

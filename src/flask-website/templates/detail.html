@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}Détail {{ type }}{% endblock %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+
+<!-- Informations générales -->
+<ul class="list-group mb-4 shadow-sm">
+  <li class="list-group-item"><strong>Nom :</strong> {{ item.name }}</li>
+  <li class="list-group-item"><strong>IP Bind :</strong> {{ item.ip_bind }}</li>
+  <li class="list-group-item"><strong>Pass :</strong> {{ item.pass }}</li>
+</ul>
+
+<!-- Configuration Nginx -->
+<h4 class="mt-4">Configuration Nginx</h4>
+<pre class="bg-dark text-light p-3 rounded shadow-sm">{{ config }}</pre>
+
+<!-- Bouton de téléchargement -->
+<a href="{{ url_for('download_config', type=type, id=item.id) }}" 
+   class="btn btn-primary mt-3">
+  Télécharger la configuration
+</a>
+
+<!-- Commandes Docker / Installation -->
+<h4 class="mt-5">Commandes d'installation</h4>
+<pre class="bg-dark text-light p-3 rounded shadow-sm">{{ commands }}</pre>
+
+<!-- Bouton retour -->
+<a href="{{ back_url }}" class="btn btn-secondary mt-4">Retour</a>
+
+{% endblock %}

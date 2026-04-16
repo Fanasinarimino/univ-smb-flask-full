@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %}Liste {{ type }}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2>{{ title }}</h2>
+  <a href="{{ create_url }}" class="btn btn-primary">+ Ajouter</a>
+</div>
+
+<table class="table table-hover shadow-sm rounded">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>IP Bind</th>
+      <th>Pass</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in items %}
+    <tr>
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.ip_bind }}</td>
+      <td>{{ item.pass }}</td>
+      <td>
+        <a href="{{ url_for(detail_route, id=item.id) }}" class="btn btn-sm btn-warning">Détail</a>
+        <a href="{{ url_for(delete_route, id=item.id) }}" class="btn btn-sm btn-danger">Supprimer</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

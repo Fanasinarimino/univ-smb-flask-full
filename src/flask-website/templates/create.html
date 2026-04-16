@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}Créer {{ type }}{% endblock %}
+
+{% block content %}
+<h2>Créer {{ title }}</h2>
+
+<form method="post" class="mt-4">
+  <div class="mb-3">
+    <label class="form-label">Nom</label>
+    <input type="text" name="name" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">IP Bind</label>
+    <input type="text" name="ip_bind" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Pass</label>
+    <input type="text" name="pass" class="form-control" required>
+  </div>
+
+  <button class="btn btn-success">Créer</button>
+  <a href="{{ back_url }}" class="btn btn-secondary">Annuler</a>
+</form>
+{% endblock %}
